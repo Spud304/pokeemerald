@@ -28,15 +28,15 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_DICK_SMASH] =
     {
-        .effect = EFFECT_SLEEP,
+        .effect = EFFECT_CONFUSE_HIT,
         .power = 40,
         .type = TYPE_STEEL,
         .accuracy = 100,
         .pp = 10,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
         .priority = 1,
-        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+        .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
     },
 
     [MOVE_KARATE_CHOP] =
