@@ -380,6 +380,11 @@ const struct MonCoords gMonFrontPicCoords[] =
         .size = 0x87,
         .y_offset = 4,
     },
+    [SPECIES_GRENINJA] =
+    {
+        .size = 0x87,
+        .y_offset = 4,
+    },
     [SPECIES_GOLEM] =
     {
         .size = 0x77,

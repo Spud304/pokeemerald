@@ -1,0 +1,23 @@
+- anim_front_pics.c
+- back_pic_coordinates.h
+- back_pic_table.h
+- base_stats.h
+- cry_ids.h
+- enemy_mon_elevation.h
+- front_anims.h
+- front_pic_coordinates.h
+- front_pic_table.h
+- level_up_learnset_pointers.h
+- palette_table.h
+- pokemon_animation.c
+- pokemon_icon.c
+- pokemon.c
+- pokemon.h
+- shiny_palette_table.h
+- species_names.h
+- species.h
+- still_front_pic_table.h
+- tmhm_learnsets.h
+- tutor_learnsets.h
+You should be able to figure out what you need to add from context in each of those, most of the edits take 2 seconds
+You'll also need to add new images and link them in graphics.h, and I forgot level_up_learnsets.h

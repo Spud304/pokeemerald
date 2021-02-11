@@ -913,6 +913,16 @@ static const union AnimCmd sAnim_GRAVELER_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_GRENINJA_1[] =
+{
+    ANIMCMD_FRAME(0, 16),
+    ANIMCMD_FRAME(1, 16),
+    ANIMCMD_FRAME(0, 16),
+    ANIMCMD_FRAME(1, 16),
+    ANIMCMD_FRAME(0, 16),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd sAnim_GOLEM_1[] =
 {
     ANIMCMD_FRAME(0, 8),
@@ -5195,6 +5205,11 @@ static const union AnimCmd *const sAnims_GRAVELER[] ={
     sAnim_GRAVELER_1,
 };
 
+static const union AnimCmd *const sAnims_GRENINJA[] ={
+    sAnim_GeneralFrame0,
+    sAnim_GRENINJA_1,
+};
+
 static const union AnimCmd *const sAnims_GOLEM[] ={
     sAnim_GeneralFrame0,
     sAnim_GOLEM_1,
@@ -7026,6 +7041,7 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     ANIM_CMD(TENTACRUEL),
     ANIM_CMD(GEODUDE),
     ANIM_CMD(GRAVELER),
+    ANIM_CMD(GRENINJA),
     ANIM_CMD(GOLEM),
     ANIM_CMD(PONYTA),
     ANIM_CMD(RAPIDASH),
