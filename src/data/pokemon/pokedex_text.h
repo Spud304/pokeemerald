@@ -1510,6 +1510,10 @@ const u8 gCelebiPokedexText[] = _(
     "long as CELEBI appears, a bright and\n"
     "shining future awaits us.");
 
+const u8 gGreninjaPokedexText[] = _(
+    "This POKéMON is pretty cool\n"
+    "Make sure to use it.");
+
 const u8 gTreeckoPokedexText[] = _(
     "It makes its nest in a giant tree in the\n"
     "forest. It ferociously guards against\n"

@@ -346,6 +346,7 @@ const u16 gSpeciesToHoennPokedexNum[] = // Assigns all species to the Hoenn Dex 
     SPECIES_TO_HOENN(LUGIA),
     SPECIES_TO_HOENN(HO_OH),
     SPECIES_TO_HOENN(CELEBI),
+    SPECIES_TO_HOENN(GRENINJA),
     SPECIES_TO_HOENN(OLD_UNOWN_B),
     SPECIES_TO_HOENN(OLD_UNOWN_C),
     SPECIES_TO_HOENN(OLD_UNOWN_D),
@@ -506,7 +507,6 @@ const u16 gSpeciesToHoennPokedexNum[] = // Assigns all species to the Hoenn Dex 
     SPECIES_TO_HOENN(JIRACHI),
     SPECIES_TO_HOENN(DEOXYS),
     SPECIES_TO_HOENN(CHIMECHO),
-    // SPECIES_TO_HOENN(GRENINJA),
 };
 
 const u16 gSpeciesToNationalPokedexNum[] = // Assigns all species to the National Dex Index (Summary No. for National Dex)
@@ -762,6 +762,7 @@ const u16 gSpeciesToNationalPokedexNum[] = // Assigns all species to the Nationa
     SPECIES_TO_NATIONAL(LUGIA),
     SPECIES_TO_NATIONAL(HO_OH),
     SPECIES_TO_NATIONAL(CELEBI),
+    SPECIES_TO_NATIONAL(GRENINJA),
     SPECIES_TO_NATIONAL(OLD_UNOWN_B),
     SPECIES_TO_NATIONAL(OLD_UNOWN_C),
     SPECIES_TO_NATIONAL(OLD_UNOWN_D),
@@ -922,7 +923,6 @@ const u16 gSpeciesToNationalPokedexNum[] = // Assigns all species to the Nationa
     SPECIES_TO_NATIONAL(JIRACHI),
     SPECIES_TO_NATIONAL(DEOXYS),
     SPECIES_TO_NATIONAL(CHIMECHO),
-    // SPECIES_TO_NATIONAL(GRENINJA),
 };
 
 const u16 gHoennToNationalOrder[] = // Assigns Hoenn Dex Pokémon (Using National Dex Index)
@@ -1078,7 +1078,6 @@ const u16 gHoennToNationalOrder[] = // Assigns Hoenn Dex Pokémon (Using Nationa
     HOENN_TO_NATIONAL(DUSCLOPS),
     HOENN_TO_NATIONAL(TROPIUS),
     HOENN_TO_NATIONAL(CHIMECHO),
-    // HOENN_TO_NATIONAL(GRENINJA),
     HOENN_TO_NATIONAL(ABSOL),
     HOENN_TO_NATIONAL(VULPIX),
     HOENN_TO_NATIONAL(NINETALES),
@@ -1314,6 +1313,7 @@ const u16 gHoennToNationalOrder[] = // Assigns Hoenn Dex Pokémon (Using Nationa
     HOENN_TO_NATIONAL(LUGIA),
     HOENN_TO_NATIONAL(HO_OH),
     HOENN_TO_NATIONAL(CELEBI),
+    HOENN_TO_NATIONAL(GRENINJA),
     HOENN_TO_NATIONAL(OLD_UNOWN_B),
     HOENN_TO_NATIONAL(OLD_UNOWN_C),
     HOENN_TO_NATIONAL(OLD_UNOWN_D),
@@ -1645,6 +1645,7 @@ static const u8 sMonFrontAnimIdsTable[] =
     [SPECIES_LUGIA - 1] = 0x3a,
     [SPECIES_HO_OH - 1] = 0x09,
     [SPECIES_CELEBI - 1] = 0x18,
+    [SPECIES_GRENINJA - 1] = 0x18,
     [SPECIES_OLD_UNOWN_B - 1] = 0x00,
     [SPECIES_OLD_UNOWN_C - 1] = 0x00,
     [SPECIES_OLD_UNOWN_D - 1] = 0x00,
@@ -1805,7 +1806,6 @@ static const u8 sMonFrontAnimIdsTable[] =
     [SPECIES_JIRACHI - 1] = 0x0d,
     [SPECIES_DEOXYS - 1] = 0x1b,
     [SPECIES_CHIMECHO - 1] = 0x1d,
-    // [SPECIES_GRENINJA - 1] = 0x0f,
 };
 
 static const u8 sMonAnimationDelayTable[NUM_SPECIES - 1] =

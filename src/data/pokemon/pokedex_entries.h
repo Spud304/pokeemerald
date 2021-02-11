@@ -3024,6 +3024,18 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerOffset = 0,
     },
 
+    [NATIONAL_DEX_GRENINJA] =
+    {
+        .categoryName = _("FROG"),
+        .height = 6,
+        .weight = 50,
+        .description = gGreninjaPokedexText,
+        .pokemonScale = 393,
+        .pokemonOffset = -10,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
     [NATIONAL_DEX_TREECKO] =
     {
         .categoryName = _("WOOD GECKO"),
