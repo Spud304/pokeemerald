@@ -3408,8 +3408,7 @@ static const struct TrainerMonItemCustomMoves sParty_Brawly1[] = {
     {
     .iv = 100,
     .lvl = 21,
-    //TODO: Code in Fletchinder
-    .species = SPECIES_MAKUHITA,
+    .species = SPECIES_FLETCHINDER,
     .heldItem = ITEM_NONE,
     .moves = {}
     }
@@ -3419,8 +3418,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wattson1[] = {
     {
     .iv = 250,
     .lvl = 31,
-    //TODO: Replace with TOGEKISS
-    .species = SPECIES_VOLTORB,
+    .species = SPECIES_TOGEKISS,
     .heldItem = ITEM_NONE,
     .moves = {}
     },
@@ -3435,16 +3433,14 @@ static const struct TrainerMonItemCustomMoves sParty_Wattson1[] = {
     {
     .iv = 220,
     .lvl = 28,
-    //TODO: Replace with Klefki
-    .species = SPECIES_MAGNETON,
+    .species = SPECIES_KLEFKI,
     .heldItem = ITEM_NONE,
     .moves = {}
     },
     {
     .iv = 200,
     .lvl = 26,
-    //TODO: Replace with Mimikyu, if ability isn't too hard
-    .species = SPECIES_MANECTRIC,
+    .species = SPECIES_MIMIKYU,
     .heldItem = ITEM_NONE,
     .moves = {}
     }
@@ -3461,24 +3457,21 @@ static const struct TrainerMonItemCustomMoves sParty_Flannery1[] = {
     {
     .iv = 200,
     .lvl = 33,
-    //TODO: Replace with Falinks
-    .species = SPECIES_SLUGMA,
+    .species = SPECIES_FALINKS,
     .heldItem = ITEM_NONE,
     .moves = {MOVE_OVERHEAT, MOVE_SMOG, MOVE_LIGHT_SCREEN, MOVE_SUNNY_DAY}
     },
     {
     .iv = 250,
     .lvl = 33,
-    //TODO: Monferno
-    .species = SPECIES_CAMERUPT,
+    .species = SPECIES_MONFERNO,
     .heldItem = ITEM_NONE,
     .moves = {MOVE_OVERHEAT, MOVE_TACKLE, MOVE_SUNNY_DAY, MOVE_ATTRACT}
     },
     {
     .iv = 250,
     .lvl = 34,
-    //TODO: Gallade
-    .species = SPECIES_TORKOAL,
+    .species = SPECIES_GALLADE,
     .heldItem = ITEM_NONE,
     .moves = {MOVE_OVERHEAT, MOVE_SUNNY_DAY, MOVE_BODY_SLAM, MOVE_ATTRACT}
     }
@@ -3502,24 +3495,21 @@ static const struct TrainerMonItemCustomMoves sParty_Norman1[] = {
     {
     .iv = 200,
     .lvl = 39,
-    //TODO: Malamar
-    .species = SPECIES_LINOONE,
+    .species = SPECIES_MALAMAR,
     .heldItem = ITEM_NONE,
     .moves = {MOVE_SLASH, MOVE_BELLY_DRUM, MOVE_FACADE, MOVE_HEADBUTT}
     },
     {
     .iv = 200,
     .lvl = 39,
-    //TODO: Orbeetle
-    .species = SPECIES_SLAKING,
+    .species = SPECIES_ORBEETLE,
     .heldItem = ITEM_NONE,
     .moves = {MOVE_COUNTER, MOVE_YAWN, MOVE_FACADE, MOVE_FAINT_ATTACK}
     },
     {
     .iv = 200,
     .lvl = 38,
-    //TODO: Sigilyph
-    .species = SPECIES_SLAKING,
+    .species = SPECIES_SIGILYPH,
     .heldItem = ITEM_NONE,
     .moves = {MOVE_COUNTER, MOVE_YAWN, MOVE_FACADE, MOVE_FAINT_ATTACK}
     }
@@ -3530,8 +3520,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona1[] = {
     {
     .iv = 255,
     .lvl = 46,
-    //TODO: Replace with Mamoswine
-    .species = SPECIES_SWABLU,
+    .species = SPECIES_MAMOSWINE,
     .heldItem = ITEM_NONE,
     .moves = {MOVE_PERISH_SONG, MOVE_MIRROR_MOVE, MOVE_SAFEGUARD, MOVE_AERIAL_ACE}
     },
@@ -3545,16 +3534,14 @@ static const struct TrainerMonItemCustomMoves sParty_Winona1[] = {
     {
     .iv = 210,
     .lvl = 45,
-    //TODO: Palisand
-    .species = SPECIES_PELIPPER,
+    .species = SPECIES_PALISAND,
     .heldItem = ITEM_NONE,
     .moves = {MOVE_WATER_GUN, MOVE_SUPERSONIC, MOVE_PROTECT, MOVE_AERIAL_ACE}
     },
     {
     .iv = 220,
     .lvl = 43,
-    //TODO: Replace with Diggersby
-    .species = SPECIES_SKARMORY,
+    .species = SPECIES_DIGGERSBY,
     .heldItem = ITEM_NONE,
     .moves = {MOVE_SAND_ATTACK, MOVE_FURY_ATTACK, MOVE_STEEL_WING, MOVE_AERIAL_ACE}
     },
@@ -3585,16 +3572,14 @@ static const struct TrainerMonItemCustomMoves sParty_TateAndLiza1[] = {
     {
     .iv = 250,
     .lvl = 53,
-    //TODO Replace with Aegislash
-    .species = SPECIES_LUNATONE,
+    .species = SPECIES_AEGISLASH,
     .heldItem = ITEM_SITRUS_BERRY,
     .moves = {MOVE_LIGHT_SCREEN, MOVE_PSYCHIC, MOVE_HYPNOSIS, MOVE_CALM_MIND}
     },
     {
     .iv = 250,
     .lvl = 53,
-    //TODO: Replace with Magnezone
-    .species = SPECIES_SOLROCK,
+    .species = SPECIES_MAGNEZONE,
     .heldItem = ITEM_SITRUS_BERRY,
     .moves = {MOVE_SUNNY_DAY, MOVE_SOLAR_BEAM, MOVE_PSYCHIC, MOVE_FLAMETHROWER}
     },
@@ -3608,8 +3593,7 @@ static const struct TrainerMonItemCustomMoves sParty_TateAndLiza1[] = {
     {
     .iv = 250,
     .lvl = 52,
-    //TODO: Empoleon
-    .species = SPECIES_SOLROCK,
+    .species = SPECIES_EMPOLEON,
     .heldItem = ITEM_SITRUS_BERRY,
     .moves = {MOVE_SUNNY_DAY, MOVE_SOLAR_BEAM, MOVE_PSYCHIC, MOVE_FLAMETHROWER}
     }
@@ -3619,8 +3603,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan1[] = {
     {
     .iv = 250,
     .lvl = 60,
-    //TODO: Replace with Alolan Muk
-    .species = SPECIES_LUVDISC,
+    .species = SPECIES_MUK_ALOLAN,
     .heldItem = ITEM_NONE,
     .moves = {MOVE_WATER_PULSE, MOVE_ATTRACT, MOVE_SWEET_KISS, MOVE_FLAIL}
     },
@@ -3634,24 +3617,21 @@ static const struct TrainerMonItemCustomMoves sParty_Juan1[] = {
     {
     .iv = 200,
     .lvl = 57,
-    //TODO: Replace with Drapion
-    .species = SPECIES_SEALEO,
+    .species = SPECIES_DRAPION,
     .heldItem = ITEM_NONE,
     .moves = {MOVE_ENCORE, MOVE_BODY_SLAM, MOVE_AURORA_BEAM, MOVE_WATER_PULSE}
     },
     {
     .iv = 200,
     .lvl = 57,
-    //TODO: Replace with Crookodile
-    .species = SPECIES_CRAWDAUNT,
+    .species = SPECIES_CROOKODILE,
     .heldItem = ITEM_NONE,
     .moves = {MOVE_WATER_PULSE, MOVE_CRABHAMMER, MOVE_TAUNT, MOVE_LEER}
     },
     {
     .iv = 200,
     .lvl = 57,
-    //TODO: Replace with Scraffy
-    .species = SPECIES_KINGDRA,
+    .species = SPECIES_SCRAFFY,
     .heldItem = ITEM_CHESTO_BERRY,
     .moves = {MOVE_WATER_PULSE, MOVE_DOUBLE_TEAM, MOVE_ICE_BEAM, MOVE_REST}
     }
@@ -3659,8 +3639,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan1[] = {
     {
     .iv = 200,
     .lvl = 56,
-    //TODO: Replace with Grimmsnarl
-    .species = SPECIES_WHISCASH,
+    .species = SPECIES_GRIMMSNARL,
     .heldItem = ITEM_NONE,
     .moves = {MOVE_RAIN_DANCE, MOVE_WATER_PULSE, MOVE_AMNESIA, MOVE_EARTHQUAKE}
     }
