@@ -5631,3 +5631,8 @@ static const u16 sGreninjaLevelUpLearnset[] = {
     LEVEL_UP_MOVE(46, MOVE_PSYCHIC),
     LEVEL_UP_END
 };
+
+static const struct LevelUpMove sMimikyuLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_DICK_SMASH),
+    LEVEL_UP_END
+};

@@ -287,6 +287,8 @@ void HandleAction_Switch(void)
 
     if (gBattleResults.playerSwitchesCounter < 255)
         gBattleResults.playerSwitchesCounter++;
+
+    UndoFormChange(gBattlerPartyIndexes[gBattlerAttacker], GetBattlerSide(gBattlerAttacker));
 }
 
 void HandleAction_UseItem(void)
@@ -4069,6 +4071,27 @@ u8 IsMonDisobedient(void)
             gBattleCommunication[MULTISTRING_CHOOSER] = Random() & 3;
             gBattlescriptCurrInstr = BattleScript_MoveUsedLoafingAround;
             return 1;
+        }
+    }
+}
+
+void UndoFormChange(u32 monId, u32 side)
+{
+    u32 i, currSpecies;
+    struct Pokemon *party = (side == B_SIDE_PLAYER) ? gPlayerParty : gEnemyParty;
+    static const u16 species[][2] = // changed form id, default form id
+    {
+        {SPECIES_MIMIKYU_BUSTED, SPECIES_MIMIKYU},
+    };
+
+    currSpecies = GetMonData(&party[monId], MON_DATA_SPECIES, NULL);
+    for (i = 0; i < ARRAY_COUNT(species); i++)
+    {
+        if (currSpecies == species[i][0])
+        {
+            SetMonData(&party[monId], MON_DATA_SPECIES, &species[i][1]);
+            CalculateMonStats(&party[monId]);
+            break;
         }
     }
 }

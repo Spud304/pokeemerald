@@ -1,0 +1,9 @@
+#ifndef GUARD_CONSTANTS_BATTLE_CONFIG_H
+#define GUARD_CONSTANTS_BATTLE_CONFIG_H
+
+#ifndef POKEMON_EXPANSION
+    #define SPECIES_MIMIKYU                 0
+    #define SPECIES_MIMIKYU_BUSTED          10001
+#endif
+
+#endif

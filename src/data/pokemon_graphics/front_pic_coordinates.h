@@ -2205,4 +2205,14 @@ const struct MonCoords gMonFrontPicCoords[] =
         .size = 0x35,
         .y_offset = 13,
     },
+    [SPECIES_MIMIKYU] =
+    {
+        .size = 0x45,
+        .y_offset = 12,
+    },
+    [SPECIES_MIMIKYU_BUSTED] =
+    {
+        .size = 0x45,
+        .y_offset = 12,
+    },
 };

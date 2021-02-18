@@ -4815,6 +4815,18 @@ static const union AnimCmd sAnim_UNOWN_QMARK_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_MIMIKYU_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_MIMIKYU_BUSTED_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd *const sAnims_NONE[] ={
     sAnim_GeneralFrame0,
     sAnim_NONE_1,
@@ -6960,6 +6972,16 @@ static const union AnimCmd *const sAnims_UNOWN_QMARK[] ={
     sAnim_UNOWN_QMARK_1,
 };
 
+static const union AnimCmd *const sAnims_MIMIKYU[] ={
+    sAnim_GeneralFrame0,
+    sAnim_MIMIKYU_1,
+};
+
+static const union AnimCmd *const sAnims_MIMIKYU_BUSTED[] ={
+    sAnim_GeneralFrame0,
+    sAnim_MIMIKYU_BUSTED_1,
+};
+
 #define ANIM_CMD(name)             [SPECIES_##name] = sAnims_##name
 #define ANIM_CMD_FULL(name, anims) [SPECIES_##name] = anims
 
@@ -7406,6 +7428,8 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     ANIM_CMD(UNOWN_Z),
     ANIM_CMD(UNOWN_EMARK),
     ANIM_CMD(UNOWN_QMARK),
+    ANIM_CMD(MIMIKYU),
+    ANIM_CMD(MIMIKYU_BUSTED),
 };
 
 #undef ANIM_CMD

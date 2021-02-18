@@ -2205,5 +2205,15 @@ const struct MonCoords gMonBackPicCoords[] =
         .size = 0x47,
         .y_offset = 6,
     },
+    [SPECIES_MIMIKYU] =
+    {
+        .size = 0x77,
+        .y_offset = 7,
+    },
+    [SPECIES_MIMIKYU_BUSTED] =
+    {
+        .size = 0x77,
+        .y_offset = 15,
+    },
 };
 

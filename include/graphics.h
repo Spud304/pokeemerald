@@ -2747,6 +2747,23 @@ extern const u32 gMonShinyPalette_Greninja[];
 extern const u32 gMonStillFrontPic_Greninja[];
 extern const u8 gMonIcon_Greninja[];
 extern const u8 gMonFootprint_Greninja[];
+
+extern const u32 gMonFrontPic_Mimikyu[];
+extern const u32 gMonPalette_Mimikyu[];
+extern const u32 gMonBackPic_Mimikyu[];
+extern const u32 gMonShinyPalette_Mimikyu[];
+extern const u32 gMonStillFrontPic_Mimikyu[];
+extern const u8 gMonIcon_Mimikyu[];
+extern const u8 gMonFootprint_Mimikyu[];
+
+extern const u32 gMonFrontPic_MimikyuBusted[];
+extern const u32 gMonPalette_MimikyuBusted[];
+extern const u32 gMonBackPic_MimikyuBusted[];
+extern const u32 gMonShinyPalette_MimikyuBusted[];
+extern const u32 gMonStillFrontPic_MimikyuBusted[];
+extern const u8 gMonIcon_MimikyuBusted[];
+extern const u8 gMonFootprint_MimikyuBusted[];
+
 extern const u32 gMonPic_Egg[];
 extern const u32 gMonPalette_Egg[];
 extern const u32 gMonFrontPic_Egg[];

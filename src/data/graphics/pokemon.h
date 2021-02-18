@@ -2719,6 +2719,17 @@ const u32 gMonShinyPalette_Greninja[] = INCBIN_U32("graphics/pokemon/greninja/sh
 const u8 gMonIcon_Greninja[] = INCBIN_U8("graphics/pokemon/greninja/icon.4bpp");
 const u8 gMonFootprint_Greninja[] = INCBIN_U8("graphics/pokemon/greninja/footprint.1bpp");
 
+const u32 gMonFrontPic_Mimikyu[] = INCBIN_U32("graphics/pokemon/mimikyu/front.4bpp.lz");
+const u32 gMonFrontPic_MimikyuBusted[] = INCBIN_U32("graphics/pokemon/mimikyu/busted/front.4bpp.lz");
+const u32 gMonBackPic_Mimikyu[] = INCBIN_U32("graphics/pokemon/mimikyu/back.4bpp.lz");
+const u32 gMonBackPic_MimikyuBusted[] = INCBIN_U32("graphics/pokemon/mimikyu/busted/back.4bpp.lz");
+const u32 gMonPalette_Mimikyu[] = INCBIN_U32("graphics/pokemon/mimikyu/normal.gbapal.lz");
+const u32 gMonPalette_MimikyuBusted[] = INCBIN_U32("graphics/pokemon/mimikyu/busted/normal.gbapal.lz");
+const u32 gMonShinyPalette_Mimikyu[] = INCBIN_U32("graphics/pokemon/mimikyu/shiny.gbapal.lz");
+const u32 gMonShinyPalette_MimikyuBusted[] = INCBIN_U32("graphics/pokemon/mimikyu/busted/shiny.gbapal.lz");
+const u8 gMonIcon_Mimikyu[] = INCBIN_U8("graphics/pokemon/mimikyu/icon.4bpp");
+const u8 gMonIcon_MimikyuBusted[] = INCBIN_U8("graphics/pokemon/mimikyu/busted/icon.4bpp");
+
 const u32 gMonStillFrontPic_Egg[] = INCBIN_U32("graphics/pokemon/egg/front.4bpp.lz");
 const u32 gMonPalette_Egg[] = INCBIN_U32("graphics/pokemon/egg/normal.gbapal.lz");
 
