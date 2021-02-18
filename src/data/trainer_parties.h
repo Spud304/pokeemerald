@@ -12467,7 +12467,3 @@ static const struct TrainerMonNoItemDefaultMoves sParty_MayLinkPlaceholder[] = {
     .species = SPECIES_KYOGRE,
     }
 };
-
-
-sParty_Flannery2
-// TODO: Add parties

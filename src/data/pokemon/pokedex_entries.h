@@ -4866,7 +4866,7 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 290,
         .trainerOffset = 2,
     },
-    [NATIONAL_DEX_COOKODILE] =
+    [NATIONAL_DEX_CROOKODILE] =
     {
         .categoryName = _("DNA"),
         .height = 17,
