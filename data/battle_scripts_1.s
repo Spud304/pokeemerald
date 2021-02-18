@@ -4,9 +4,11 @@
 #include "constants/battle_anim.h"
 #include "constants/battle_string_ids.h"
 #include "constants/abilities.h"
+#include "constants/hold_effects.h"
 #include "constants/moves.h"
 #include "constants/songs.h"
 #include "constants/game_stat.h"
+#include "constants/battle_config.h"
 	.include "asm/macros.inc"
 	.include "asm/macros/battle_script.inc"
 	.include "constants/constants.inc"
@@ -4558,6 +4560,12 @@ BattleScript_AskIfWantsToForfeitMatch::
 	forfeityesnobox BS_ATTACKER
 	endselectionscript
 
+BattleScript_AbilityPopUp:
+	showabilitypopup BS_ABILITY_BATTLER
+	recordability BS_ABILITY_BATTLER
+	pause 40
+	return
+
 BattleScript_PrintPlayerForfeited::
 	printstring STRINGID_FORFEITEDMATCH
 	waitmessage 0x40
@@ -4569,3 +4577,29 @@ BattleScript_PrintPlayerForfeitedLinkBattle::
 	endlinkbattle
 	waitmessage 0x40
 	end2
+
+BattleScript_TargetFormChange::
+	pause 0x5
+	copybyte gBattlerAbility, gBattlerTarget
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_EMPTYSTRING3
+	waitmessage 0x1
+	handleformchange BS_TARGET, 0
+	handleformchange BS_TARGET, 1
+	playanimation BS_TARGET, B_ANIM_FORM_CHANGE, NULL
+	waitanimation
+	handleformchange BS_TARGET, 2 
+	return
+
+BattleScript_AttackerFormChange::
+	pause 0x5
+	copybyte gBattlerAbility, gBattlerAttacker
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_EMPTYSTRING3
+	waitmessage 0x1
+	handleformchange BS_ATTACKER, 0
+	handleformchange BS_ATTACKER, 1
+	playanimation BS_ATTACKER, B_ANIM_FORM_CHANGE, NULL
+	waitanimation
+	handleformchange BS_ATTACKER, 2 
+	return

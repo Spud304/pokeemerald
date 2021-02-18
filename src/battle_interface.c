@@ -2393,7 +2393,79 @@ static s32 CalcNewBarValue(s32 maxValue, s32 oldValue, s32 receivedValue, s32 *c
 
     return ret;
 }
+/*
+void CreateAbilityPopUp(u8 battlerId, u32 ability, bool32 isDoubleBattle)
+{
+    const s16 (*coords)[2];
+    u8 spriteId1, spriteId2, battlerPosition, taskId;
 
+    if (!B_ABILITY_POP_UP)
+        return;
+
+    if (!gBattleStruct->activeAbilityPopUps)
+    {
+        LoadSpriteSheet(&sSpriteSheet_AbilityPopUp);
+        LoadSpritePalette(&sSpritePalette_AbilityPopUp);
+    }
+    gBattleStruct->activeAbilityPopUps |= gBitTable[battlerId];
+    battlerPosition = GetBattlerPosition(battlerId);
+
+    if (isDoubleBattle)
+        coords = sAbilityPopUpCoordsDoubles;
+    else
+        coords = sAbilityPopUpCoordsSingles;
+
+    if ((battlerPosition & BIT_SIDE) == B_SIDE_PLAYER)
+    {
+        spriteId1 = CreateSprite(&sSpriteTemplate_AbilityPopUp1,
+                                coords[battlerPosition][0] - ABILITY_POP_UP_POS_X_SLIDE,
+                                coords[battlerPosition][1], 0);
+        spriteId2 = CreateSprite(&sSpriteTemplate_AbilityPopUp2,
+                                coords[battlerPosition][0] - ABILITY_POP_UP_POS_X_SLIDE + ABILITY_POP_UP_POS_X_DIFF,
+                                coords[battlerPosition][1], 0);
+
+        gSprites[spriteId1].tOriginalX = coords[battlerPosition][0];
+        gSprites[spriteId2].tOriginalX = coords[battlerPosition][0] + ABILITY_POP_UP_POS_X_DIFF;
+
+        gSprites[spriteId1].tRightToLeft = TRUE;
+        gSprites[spriteId2].tRightToLeft = TRUE;
+    }
+    else
+    {
+        spriteId1 = CreateSprite(&sSpriteTemplate_AbilityPopUp1,
+                                coords[battlerPosition][0] + ABILITY_POP_UP_POS_X_SLIDE,
+                                coords[battlerPosition][1], 0);
+        spriteId2 = CreateSprite(&sSpriteTemplate_AbilityPopUp2,
+                                coords[battlerPosition][0] + ABILITY_POP_UP_POS_X_SLIDE + ABILITY_POP_UP_POS_X_DIFF,
+                                coords[battlerPosition][1], 0);
+
+        gSprites[spriteId1].tOriginalX = coords[battlerPosition][0];
+        gSprites[spriteId2].tOriginalX = coords[battlerPosition][0] + ABILITY_POP_UP_POS_X_DIFF;
+
+        gSprites[spriteId1].tRightToLeft = FALSE;
+        gSprites[spriteId2].tRightToLeft = FALSE;
+    }
+    
+    gBattleStruct->abilityPopUpSpriteIds[gBattleAnimAttacker][0] = spriteId1;
+    gBattleStruct->abilityPopUpSpriteIds[gBattleAnimAttacker][1] = spriteId2;
+
+    taskId = CreateTask(Task_FreeAbilityPopUpGfx, 5);
+    gTasks[taskId].tSpriteId1 = spriteId1;
+    gTasks[taskId].tSpriteId2 = spriteId2;
+
+    gSprites[spriteId1].tIsMain = TRUE;
+    gSprites[spriteId1].tBattlerId = battlerId;
+    gSprites[spriteId2].tBattlerId = battlerId;
+
+    StartSpriteAnim(&gSprites[spriteId1], 0);
+    StartSpriteAnim(&gSprites[spriteId2], 0);
+
+    PrintBattlerOnAbilityPopUp(battlerId, spriteId1, spriteId2);
+    PrintAbilityOnAbilityPopUp(ability, spriteId1, spriteId2);
+    RestoreOverwrittenPixels((void*)(OBJ_VRAM0) + (gSprites[spriteId1].oam.tileNum * 32));
+}
+
+*/
 static u8 CalcBarFilledPixels(s32 maxValue, s32 oldValue, s32 receivedValue, s32 *currValue, u8 *arg4, u8 scale)
 {
     u8 pixels, filledPixels, totalPixels;

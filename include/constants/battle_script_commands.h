@@ -47,6 +47,7 @@
 #define BS_OPPONENT1                12
 #define BS_PLAYER2                  13
 #define BS_OPPONENT2                14
+#define BS_ABILITY_BATTLER          15
 
 // Cmd_accuracycheck
 #define NO_ACC_CALC 0xFFFE
@@ -85,6 +86,8 @@
 #define VARIOUS_SET_ALREADY_STATUS_MOVE_ATTEMPT 23
 #define VARIOUS_SET_TELEPORT_OUTCOME            25
 #define VARIOUS_PLAY_TRAINER_DEFEATED_MUSIC     26
+#define VARIOUS_HANDLE_FORM_CHANGE              27
+#define VARIOUS_ABILITY_POPUP                   28
 
 // Cmd_manipulatedmg
 #define DMG_CHANGE_SIGN            0

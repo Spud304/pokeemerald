@@ -698,6 +698,9 @@ u8 GetBattlerForBattleScript(u8 caseId)
     case BS_OPPONENT2:
         ret = GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT);
         break;
+    case BS_ABILITY_BATTLER:
+        ret = gBattlerAbility;
+        break;
     }
     return ret;
 }
@@ -4094,4 +4097,21 @@ void UndoFormChange(u32 monId, u32 side)
             break;
         }
     }
+}
+
+
+u32 GetBattlerAbility(u8 battlerId)
+{
+    return gBattleMons[battlerId].ability;
+}
+
+
+u32 GetBattlerHoldEffect(u8 battlerId, bool32 checkNegating)
+{
+    return ItemId_GetHoldEffect(gBattleMons[battlerId].item);
+}
+
+u32 GetBattlerHoldEffectParam(u8 battlerId)
+{
+    return ItemId_GetHoldEffectParam(gBattleMons[battlerId].item);
 }

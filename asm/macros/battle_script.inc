@@ -147,6 +147,19 @@
 	.4byte \ptr
 	.endm
 
+	.macro destroyabilitypopup
+	various BS_ABILITY_BATTLER, VARIOUS_DESTROY_ABILITY_POPUP
+	.endm
+
+	.macro showabilitypopup battler:req
+	various \battler, VARIOUS_ABILITY_POPUP
+	.endm
+
+	.macro recordability battler:req
+	.byte 0x70
+	.byte \battler
+	.endm
+
 	.macro jumpifsideaffecting battler:req, sidestatus:req, ptr:req
 	.byte 0x1f
 	.byte \battler
@@ -1430,4 +1443,9 @@
 	
 	.macro jumpifnotbattletype flags:req, jumpptr:req
 	jumpifword CMP_NO_COMMON_BITS, gBattleTypeFlags, \flags, \jumpptr
+	.endm
+
+	.macro handleformchange battler:req, case:req
+	various \battler, VARIOUS_HANDLE_FORM_CHANGE
+	.byte \case
 	.endm

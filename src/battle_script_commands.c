@@ -1283,7 +1283,8 @@ bool32 DoesDisguiseBlockMove(u8 battlerAtk, u8 battlerDef, u32 move)
         || gBattleMoves[move].power == 0)
         return FALSE;
     else
-       
+        return TRUE;
+}
 
 static void Cmd_damagecalc(void)
 {
@@ -1656,8 +1657,6 @@ static void Cmd_adjustdamage(void)
 {
     u8 holdEffect, param;
 
-    if (DoesSubstituteBlockMove(gBattlerAttacker, gBattlerTarget, gCurrentMove))
-        goto END;
     if (DoesDisguiseBlockMove(gBattlerAttacker, gBattlerTarget, gCurrentMove))
         goto END;
     if (gBattleMons[gBattlerTarget].hp > gBattleMoveDamage)
@@ -1673,65 +1672,13 @@ static void Cmd_adjustdamage(void)
         RecordItemEffectBattle(gBattlerTarget, holdEffect);
         gSpecialStatuses[gBattlerTarget].focusBanded = 1;
     }
-    else if (holdEffect == HOLD_EFFECT_FOCUS_SASH && BATTLER_MAX_HP(gBattlerTarget))
-    {
-        RecordItemEffectBattle(gBattlerTarget, holdEffect);
-        gSpecialStatuses[gBattlerTarget].focusSashed = 1;
-    }
-    else if (GetBattlerAbility(gBattlerTarget) == ABILITY_STURDY && BATTLER_MAX_HP(gBattlerTarget))
-    {
-        RecordAbilityBattle(gBattlerTarget, ABILITY_STURDY);
-        gSpecialStatuses[gBattlerTarget].sturdied = 1;
-    }
-
-    if (gBattleMoves[gCurrentMove].effect != EFFECT_FALSE_SWIPE
-        && !gProtectStructs[gBattlerTarget].endured
-        && !gSpecialStatuses[gBattlerTarget].focusBanded
-        && !gSpecialStatuses[gBattlerTarget].focusSashed
-        && !gSpecialStatuses[gBattlerTarget].sturdied)
-        goto END;
 
     // Handle reducing the dmg to 1 hp.
     gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
 
-    if (gProtectStructs[gBattlerTarget].endured)
-    {
-        gMoveResultFlags |= MOVE_RESULT_FOE_ENDURED;
-    }
-    else if (gSpecialStatuses[gBattlerTarget].focusBanded || gSpecialStatuses[gBattlerTarget].focusSashed)
-    {
-        gMoveResultFlags |= MOVE_RESULT_FOE_HUNG_ON;
-        gLastUsedItem = gBattleMons[gBattlerTarget].item;
-    }
-    else if (gSpecialStatuses[gBattlerTarget].sturdied)
-    {
-        gMoveResultFlags |= MOVE_RESULT_STURDIED;
-        gLastUsedAbility = ABILITY_STURDY;
-    }
-
 END:
     gBattlescriptCurrInstr++;
-
-    if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT) && gBattleMoveDamage >= 1)
-        gSpecialStatuses[gBattlerAttacker].damagedMons |= gBitTable[gBattlerTarget];
-
     // Check gems and damage reducing berries.
-    if (gSpecialStatuses[gBattlerTarget].berryReduced
-        && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
-        && gBattleMons[gBattlerTarget].item)
-    {
-        BattleScriptPushCursor();
-        gBattlescriptCurrInstr = BattleScript_BerryReduceDmg;
-        gLastUsedItem = gBattleMons[gBattlerTarget].item;
-    }
-    if (gSpecialStatuses[gBattlerAttacker].gemBoost
-        && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
-        && gBattleMons[gBattlerAttacker].item)
-    {
-        BattleScriptPushCursor();
-        gBattlescriptCurrInstr = BattleScript_GemActivates;
-        gLastUsedItem = gBattleMons[gBattlerAttacker].item;
-    }
 }
 
 
@@ -1805,11 +1752,7 @@ static void Cmd_healthbarupdate(void)
     {
         gActiveBattler = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
 
-        if (DoesSubstituteBlockMove(gBattlerAttacker, gActiveBattler, gCurrentMove) && gDisableStructs[gActiveBattler].substituteHP && !(gHitMarker & HITMARKER_IGNORE_SUBSTITUTE))
-        {
-            PrepareStringBattle(STRINGID_SUBSTITUTEDAMAGED, gActiveBattler);
-        }
-        else if (!DoesDisguiseBlockMove(gBattlerAttacker, gActiveBattler, gCurrentMove))
+        if (!DoesDisguiseBlockMove(gBattlerAttacker, gActiveBattler, gCurrentMove))
         {
             s16 healthValue = min(gBattleMoveDamage, 10000); // Max damage (10000) not present in R/S, ensures that huge damage values don't change sign
 
@@ -3974,6 +3917,7 @@ static void Cmd_playanimation(void)
 
     if (gBattlescriptCurrInstr[2] == B_ANIM_STATS_CHANGE
         || gBattlescriptCurrInstr[2] == B_ANIM_SNATCH_MOVE
+        || gBattlescriptCurrInstr[2] == B_ANIM_FORM_CHANGE
         || gBattlescriptCurrInstr[2] == B_ANIM_SUBSTITUTE_FADE)
     {
         BtlController_EmitBattleAnimation(0, gBattlescriptCurrInstr[2], *argumentPtr);
@@ -4017,6 +3961,7 @@ static void Cmd_playanimation2(void) // animation Id is stored in the first poin
 
     if (*animationIdPtr == B_ANIM_STATS_CHANGE
         || *animationIdPtr == B_ANIM_SNATCH_MOVE
+        || *animationIdPtr == B_ANIM_FORM_CHANGE
         || *animationIdPtr == B_ANIM_SUBSTITUTE_FADE)
     {
         BtlController_EmitBattleAnimation(0, *animationIdPtr, *argumentPtr);
@@ -6128,6 +6073,22 @@ static void Cmd_makevisible(void)
     gBattlescriptCurrInstr += 2;
 }
 
+static void RecalcBattlerStats(u32 battler, struct Pokemon *mon)
+{
+    CalculateMonStats(mon);
+    gBattleMons[battler].level = GetMonData(mon, MON_DATA_LEVEL);
+    gBattleMons[battler].hp = GetMonData(mon, MON_DATA_HP);
+    gBattleMons[battler].maxHP = GetMonData(mon, MON_DATA_MAX_HP);
+    gBattleMons[battler].attack = GetMonData(mon, MON_DATA_ATK);
+    gBattleMons[battler].defense = GetMonData(mon, MON_DATA_DEF);
+    gBattleMons[battler].speed = GetMonData(mon, MON_DATA_SPEED);
+    gBattleMons[battler].spAttack = GetMonData(mon, MON_DATA_SPATK);
+    gBattleMons[battler].spDefense = GetMonData(mon, MON_DATA_SPDEF);
+    gBattleMons[battler].ability = GetMonAbility(mon);
+    gBattleMons[battler].type1 = gBaseStats[gBattleMons[battler].species].type1;
+    gBattleMons[battler].type2 = gBaseStats[gBattleMons[battler].species].type2;
+}
+
 static void Cmd_recordlastability(void)
 {
     gActiveBattler = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
@@ -6216,8 +6177,10 @@ static void Cmd_useitemonopponent(void)
 
 static void Cmd_various(void)
 {
-    u8 side;
-    s32 i;
+    struct Pokemon *mon;
+    s32 i, j;
+    u8 data[10];
+    u32 side, bits;
 
     gActiveBattler = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
 
@@ -6302,6 +6265,34 @@ static void Cmd_various(void)
 
         gBattleCommunication[1] = i;
         break;
+    case VARIOUS_HANDLE_FORM_CHANGE:
+        if (GetBattlerSide(gActiveBattler) == B_SIDE_OPPONENT)
+            mon = &gEnemyParty[gBattlerPartyIndexes[gActiveBattler]];
+        else
+            mon = &gPlayerParty[gBattlerPartyIndexes[gActiveBattler]];
+
+        // Change species.
+        if (gBattlescriptCurrInstr[3] == 0)
+        {
+            PREPARE_SPECIES_BUFFER(gBattleTextBuff1, gBattleMons[gActiveBattler].species);
+            BtlController_EmitSetMonData(0, REQUEST_SPECIES_BATTLE, gBitTable[gBattlerPartyIndexes[gActiveBattler]], 2, &gBattleMons[gActiveBattler].species);
+            MarkBattlerForControllerExec(gActiveBattler);
+        }
+        // Change stats.
+        else if (gBattlescriptCurrInstr[3] == 1)
+        {
+            RecalcBattlerStats(gActiveBattler, mon);
+        }
+        // Update healthbox.
+        else
+        {
+            UpdateHealthboxAttribute(gHealthboxSpriteIds[gActiveBattler], mon, HEALTHBOX_ALL);
+        }
+        gBattlescriptCurrInstr += 4;
+        return;
+    // case VARIOUS_ABILITY_POPUP:
+    //     CreateAbilityPopUp(gActiveBattler, gBattleMons[gActiveBattler].ability, (gBattleTypeFlags & BATTLE_TYPE_DOUBLE) != 0);
+    //     break;
     case VARIOUS_ARENA_OPPONENT_MON_LOST:
         gBattleMons[1].hp = 0;
         gHitMarker |= HITMARKER_FAINTED(1);
