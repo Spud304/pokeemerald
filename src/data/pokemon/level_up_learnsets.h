@@ -5633,6 +5633,7 @@ static const u16 sGreninjaLevelUpLearnset[] = {
 };
 
 static const u16 sMimikyuLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 1, MOVE_DICK_SMASH),
+    LEVEL_UP_MOVE( 1, MOVE_WRAP),
+    LEVEL_UP_MOVE( 1, MOVE_GROWL),
     LEVEL_UP_END
 };
